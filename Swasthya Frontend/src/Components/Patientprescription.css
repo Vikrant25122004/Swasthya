@@ -1,0 +1,208 @@
+/* Importing the same font and color variables for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --accent-color: #00ffc0;
+  --bg-color-dark: #121827;
+  --text-color-light: #f8f9fa;
+  --card-bg-dark: rgba(45, 55, 72, 0.5);
+  --card-border-dark: rgba(255, 255, 255, 0.1);
+  --glass-effect: blur(10px);
+  --transition-speed: 0.3s;
+  --error-color: #ff6b6b;
+  --success-color: #38b2ac;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+}
+
+.history-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #00ffc0, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.prescription-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.prescription-item {
+  background: var(--card-bg-dark);
+  backdrop-filter: var(--glass-effect);
+  border: 1px solid var(--card-border-dark);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.prescription-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 255, 192, 0.15);
+}
+
+.item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.item-details p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.item-details p strong {
+  color: #a0aec0;
+  font-weight: 400;
+}
+
+.status-paid {
+  color: var(--success-color);
+  font-weight: 600;
+}
+
+.status-pending {
+  color: var(--error-color);
+  font-weight: 600;
+}
+
+.pdf-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color var(--transition-speed);
+}
+
+.pdf-link:hover {
+  color: var(--accent-color);
+}
+
+.no-document {
+  color: #a0aec0;
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.ai-button, .pay-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  font-size: 0.9rem;
+}
+
+.ai-button {
+  background: none;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+.ai-button:hover:not(:disabled) {
+  background: rgba(0, 255, 192, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 255, 192, 0.2);
+}
+
+.ai-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pay-button {
+  background: linear-gradient(45deg, #00ffc0, #007bff);
+  color: var(--bg-color-dark);
+  box-shadow: 0 4px 15px rgba(0, 255, 192, 0.2);
+}
+
+.pay-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 192, 0.3);
+}
+
+.pay-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.ai-result {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  white-space: pre-wrap;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-color-light);
+  font-size: 0.9rem;
+}
+
+.ai-result strong {
+  color: var(--accent-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 500px) {
+  .main-title {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+  .item-actions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .item-actions button {
+    flex: 1;
+    text-align: center;
+  }
+}

@@ -1,0 +1,151 @@
+/* Importing the same font and color variables for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --accent-color: #00ffc0;
+  --bg-color-dark: #121827;
+  --text-color-light: #f8f9fa;
+  --card-bg-dark: rgba(45, 55, 72, 0.5);
+  --card-border-dark: rgba(255, 255, 255, 0.1);
+  --glass-effect: blur(10px);
+  --transition-speed: 0.3s;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg-dark);
+  backdrop-filter: var(--glass-effect);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--card-border-dark);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all var(--transition-speed) ease;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.navbar-logo span {
+  background: linear-gradient(90deg, #00ffc0, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color-light);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: var(--text-color-light);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color var(--transition-speed);
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+.logout-button {
+  background: linear-gradient(45deg, #00ffc0, #007bff);
+  color: var(--bg-color-dark);
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logout-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 255, 192, 0.3);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1.5rem;
+  }
+  .menu-button {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: var(--card-bg-dark);
+    backdrop-filter: var(--glass-effect);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform var(--transition-speed), opacity var(--transition-speed), visibility var(--transition-speed);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  .nav-links-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  .logout-button {
+    width: 100%;
+  }
+}
+
+.outlet-content {
+  /* This is where the nested route content will be rendered */
+}

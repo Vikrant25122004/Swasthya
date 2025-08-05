@@ -1,0 +1,173 @@
+/* Importing the same font and color variables for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --accent-color: #00ffc0;
+  --bg-color-dark: #121827;
+  --text-color-light: #f8f9fa;
+  --card-bg-dark: rgba(45, 55, 72, 0.5);
+  --card-border-dark: rgba(255, 255, 255, 0.1);
+  --glass-effect: blur(10px);
+  --transition-speed: 0.3s;
+  --error-color: #ff6b6b;
+  --success-color: #38b2ac;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+}
+
+.past-patients-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.past-patients-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #00ffc0, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.past-patients-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card-bg-dark);
+  backdrop-filter: var(--glass-effect);
+  border: 1px solid var(--card-border-dark);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.past-patients-table thead tr {
+  background-color: rgba(0, 123, 255, 0.2);
+  color: var(--text-color-light);
+}
+
+.past-patients-table th,
+.past-patients-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--card-border-dark);
+}
+
+.past-patients-table th:first-child { border-top-left-radius: 12px; }
+.past-patients-table th:last-child { border-top-right-radius: 12px; }
+.past-patients-table tr:last-child td:first-child { border-bottom-left-radius: 12px; }
+.past-patients-table tr:last-child td:last-child { border-bottom-right-radius: 12px; border-bottom: none; }
+
+.past-patients-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+}
+
+.past-patients-table tbody tr {
+  transition: background-color var(--transition-speed);
+}
+
+.past-patients-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.past-patients-table a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color var(--transition-speed);
+}
+
+.past-patients-table a:hover {
+  color: var(--accent-color);
+}
+
+.no-document {
+  color: #a0aec0;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.paid-icon {
+  color: var(--success-color);
+}
+
+.unpaid-icon {
+  color: var(--error-color);
+}
+
+.rating-cell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star-icon.filled {
+  fill: #ffc107;
+  color: #ffc107;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .past-patients-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .past-patients-table thead {
+    display: none;
+  }
+
+  .past-patients-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid var(--card-border-dark);
+    border-radius: 12px;
+  }
+
+  .past-patients-table td {
+    display: block;
+    text-align: right;
+    border-bottom: 1px solid var(--card-border-dark);
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .past-patients-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    width: 45%;
+    text-align: left;
+    font-weight: 600;
+    color: var(--accent-color);
+  }
+
+  .past-patients-table tr:last-child td:last-child {
+      border-bottom-right-radius: 12px;
+  }
+}

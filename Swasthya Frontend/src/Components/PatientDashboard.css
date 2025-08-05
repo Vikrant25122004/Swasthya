@@ -1,0 +1,193 @@
+/* Importing the same font and color variables for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --accent-color: #00ffc0;
+  --bg-color-dark: #121827;
+  --text-color-light: #f8f9fa;
+  --card-bg-dark: rgba(45, 55, 72, 0.5);
+  --card-border-dark: rgba(255, 255, 255, 0.1);
+  --glass-effect: blur(10px);
+  --transition-speed: 0.3s;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+}
+
+.doctor-list-container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #00ffc0, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.doctor-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.doctor-card {
+  background: var(--card-bg-dark);
+  backdrop-filter: var(--glass-effect);
+  border: 1px solid var(--card-border-dark);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition-speed);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 255, 192, 0.15);
+  border-color: var(--accent-color);
+}
+
+.profile-image-container {
+  width: 110px;
+  height: 110px;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+}
+
+.profile-image-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a0aec0;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.doctor-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: var(--accent-color);
+}
+
+.doctor-details {
+  text-align: left;
+  width: 100%;
+}
+
+.doctor-details p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.doctor-details p strong {
+  color: #a0aec0;
+  font-weight: 400;
+}
+
+.download-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+  transition: color var(--transition-speed);
+}
+
+.download-link:hover {
+  color: var(--accent-color);
+}
+
+.no-document {
+  color: #a0aec0;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.call-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  background: linear-gradient(45deg, #00ffc0, #007bff);
+  color: var(--bg-color-dark);
+  box-shadow: 0 4px 15px rgba(0, 255, 192, 0.2);
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.call-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 192, 0.3);
+}
+
+.prescription-section {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.prescription-card {
+  background: var(--card-bg-dark);
+  backdrop-filter: var(--glass-effect);
+  border: 1px solid var(--card-border-dark);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.prescription-card h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+  .doctor-card {
+    padding: 15px;
+  }
+}

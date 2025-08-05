@@ -1,0 +1,182 @@
+/* Importing the same font and color variables for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --accent-color: #00ffc0;
+  --bg-color-dark: #121827;
+  --text-color-light: #f8f9fa;
+  --card-bg-dark: rgba(45, 55, 72, 0.5);
+  --card-border-dark: rgba(255, 255, 255, 0.1);
+  --glass-effect: blur(10px);
+  --transition-speed: 0.3s;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-color-dark);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.auth-card {
+  background: var(--card-bg-dark);
+  backdrop-filter: var(--glass-effect);
+  border: 1px solid var(--card-border-dark);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: var(--text-color-light);
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #00ffc0, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-icon {
+  color: var(--accent-color);
+}
+
+.error-msg {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-label {
+  text-align: left;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label input[type="text"],
+.form-label input[type="email"],
+.form-label input[type="password"] {
+  background: transparent;
+  border: 1px solid var(--card-border-dark);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text-color-light);
+  transition: all var(--transition-speed);
+}
+
+.form-label input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(0, 255, 192, 0.2);
+}
+
+/* Style for file inputs */
+.file-input-label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border-dark);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.file-input-label input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-name {
+  color: #a0aec0;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-speed);
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #00ffc0, #007bff);
+  color: var(--bg-color-dark);
+  box-shadow: 0 4px 15px rgba(0, 255, 192, 0.2);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 255, 192, 0.3);
+}
+
+.auth-switch-text {
+  margin-top: 1.5rem;
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+  transition: color var(--transition-speed);
+}
+
+.btn-link:hover {
+  color: #007bff;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 1.5rem;
+  }
+  .auth-title {
+    font-size: 1.5rem;
+  }
+  .btn-primary {
+    padding: 0.75rem 1.5rem;
+  }
+}
